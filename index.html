@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Widdle Away</title>
+</head>
+<body>
+    <h1 class="main-title">Widdle Away</h1>
+    <section class="section__topics">
+        <h2>What would you like to widdle away at?</h2>
+        <!-- list of chosen topics
+        select from chosen topics. Save and pull from localstorage -->
+        <form class="topic__form">
+            <input class="topic__textbox js-topic__textbox" type="text" name="topic" id="topic" placeholder="Enter Topic Here">
+            <button class="topic__button js-topic__button">Enter</button>
+        </form>
+
+        <ul class="topic__list js-topic__list"></ul>
+    </section>
+    <section class="section__tools">
+        <!-- Pomodoro timer -->
+        <h2>Widdle tools</h2>
+
+        <section class="timer__section">
+            <h3 class="timer__header">Timer</h3>
+            <div class="progress-timer">
+                <div class="progress-timer__display"></div>
+    
+            </div>
+        </section>
+        <!-- Progress bar -->
+    </section>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+</html>
