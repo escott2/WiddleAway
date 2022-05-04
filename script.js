@@ -3,8 +3,9 @@
 const topicTextbox = document.querySelector('.js-topic__textbox');
 const topicButton = document.querySelector('.js-topic__button');
 let topicTextboxValue = null;
-const topicArray = [];
+let topicArray = [];
 const topicList = document.querySelector('.js-topic__list');
+let storedTopics = null;
 
 
 // Event listeners ***************************
@@ -14,6 +15,14 @@ topicButton.addEventListener('click', saveTopic);
 
 // Functions **********************************
 
+window.addEventListener('load', handlePageLoad);
+
+function handlePageLoad() {
+    getLocalStorage();
+    topicArray.push(...storedTopics);
+    displaySavedTopics();
+}
+
 /** Adds topic entered by user to array */
 function saveTopic(e) {
     e.preventDefault();
@@ -21,22 +30,20 @@ function saveTopic(e) {
     topicTextbox.value = "";
     topicArray.push(topicTextboxValue);
 
-    displaySavedTopics();
     setLocalStorage();
     getLocalStorage();
-
+    displaySavedTopics();
 }
 
 /** Appends saved topics to UI */
 function displaySavedTopics() {
     removeAllChildNodes(topicList);
 
-    for (let i = 0; i < topicArray.length; i++) {
+    for (let i = 0; i < storedTopics.length; i++) {
         const listItem = document.createElement('li');
-        const listItemText = document.createTextNode(topicArray[i]);
+        const listItemText = document.createTextNode(storedTopics[i]);
         listItem.appendChild(listItemText);
         topicList.appendChild(listItem);
-        console.log("test");
     }
 }
 
@@ -59,13 +66,13 @@ function removeAllChildNodes(parent) {
 //Timer functionality
 
 
-//Save to localStorage
+/** saves topics to local storage */
 function setLocalStorage() {
     localStorage.setItem('topics', JSON.stringify(topicArray)); 
 }
 
+/** retrieves topics from local storage */
 function getLocalStorage() {
-    const storedTopics = JSON.parse(localStorage.getItem('topics'));
-    console.log(storedTopics);
+    storedTopics = JSON.parse(localStorage.getItem('topics'));
 }
 

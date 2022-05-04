@@ -24,12 +24,30 @@ body {
     padding: 5px;
 }
 
+.topic__list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+.topic__list li {
+    width: 180px;
+    height: 60px;
+    border: 2px solid #038c4c;
+    border-radius: 5px;
+    margin: 5px;
+    list-style: none;
+    padding: 5px;
+    box-shadow: 10px 5px 5px #bfbfbf;
+}
+
 .topic__button {
-    background-color: #3c6973;
-    border: 2px solid #56828c;
+    background-color: #0597f2;
+    /* border: 2px solid #000000; */
+    border: none;
     color: #ffffff;
     outline: none;
-    padding: 5px;
+    padding: 10px 25px;
     margin: 10px 0;
 }
 
